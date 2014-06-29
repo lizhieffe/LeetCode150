@@ -1,4 +1,4 @@
-package TimeLimitExceeded;
+package Accepted;
 
 public class SortColor {
 	public void sortColors(int[] A) {

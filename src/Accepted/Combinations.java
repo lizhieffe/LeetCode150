@@ -1,4 +1,4 @@
-package TimeLimitExceeded;
+package Accepted;
 
 import java.util.ArrayList;
 import java.util.List;

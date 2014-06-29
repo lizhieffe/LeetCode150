@@ -1,4 +1,4 @@
-package TimeLimitExceeded;
+package Accepted;
 
 public class AddBinary {
 
