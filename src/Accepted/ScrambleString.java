@@ -1,7 +1,5 @@
 package Accepted;
 
-import java.util.Arrays;
-
 public class ScrambleString {
 
 	private Boolean[][][] dpResult;
