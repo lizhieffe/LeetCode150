@@ -23,10 +23,10 @@ public class WordSearch {
         boolean result = false;
         for (int i = 0; i < rows; i ++) {
             for (int j = 0; j < columns; j ++) {
-            if (board[i][j] == word.charAt(0)) {
-            boolean[][] newOccupied = copy(occupied);
-            result =  result || exist(i, j, 0, newOccupied);
-            }
+            	if (board[i][j] == word.charAt(0)) {
+            		boolean[][] newOccupied = copy(occupied);
+            		result =  result || exist(i, j, 0, newOccupied);
+            	}
             }
         }
         
@@ -70,7 +70,7 @@ public class WordSearch {
     }
     
     private boolean[][] copy(boolean[][] array) {
-    boolean[][] result = new boolean[rows][columns];
+    	boolean[][] result = new boolean[rows][columns];
         for (int i = 0; i < rows; i ++) {
             boolean[] tmp = new boolean[columns];
             System.arraycopy(array[i], 0, tmp, 0, columns);
@@ -81,13 +81,13 @@ public class WordSearch {
     }
     
     public static void main(String[] args) {
-	    char[] a = {'a'};
-	    char[][] t = new char[1][2];
-	    t[0] = a;
-	    
-	    String word = "a";
-	    
-	    WordSearch service = new WordSearch();
-	    System.out.println(service.exist(t, word));
+    	char[] a = {'a'};
+    	char[][] t = new char[1][2];
+    	t[0] = a;
+    	
+    	String word = "a";
+    	
+    	WordSearch service = new WordSearch();
+    	System.out.println(service.exist(t, word));
     }
 }

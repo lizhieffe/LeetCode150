@@ -26,26 +26,17 @@ public class NQueens {
         if (start.x < 0 || start.x >= n || start.y < 0 || start.y >= n)
             return;
         
-        List<Position> newSolution = new ArrayList<Position>(solution);
+        List<Position> newSolution;
         
-        for (int i = start.x; i < n; i ++) {
-            for (int j = 0; j < n; j ++) {
-                if (j < start.y && i == start.x)
-                    continue;
-                else {                        
-                    if (checkPosition(new Position(i, j), newSolution) == true) {
-                        newSolution.add(new Position(i, j));
-                        if (tmpN == 1)
-                            result.add(newSolution);
-                        else {
-                        	if (i == n - 1 && j == n - 1)
-                        		continue;
-                        	else if (j == n - 1)
-                                solve(n - 1, new Position(i + 1, 0), newSolution);
-                        	else
-                        		solve(n - 1, new Position(i, j + 1), newSolution);
-                        }
-                    }
+        int i = start.x;
+        for (int j = 0; j < n; j ++) {
+        	newSolution = new ArrayList<Position>(solution);
+            if (checkPosition(new Position(i, j), newSolution) == true) {
+                newSolution.add(new Position(i, j));
+                if (tmpN == 1)
+                    result.add(newSolution);
+                else {
+                	solve(tmpN - 1, new Position(i + 1, 0), newSolution);
                 }
             }
         }
@@ -54,7 +45,7 @@ public class NQueens {
     private boolean checkPosition(Position position, List<Position> solution) {
         for (Position existing : solution) {
             if (position.x == existing.x || position.y == existing.y 
-                    || Math.abs((position.x - existing.x) / (position.y - existing.y)) == 1)
+                    || Math.abs(position.x - existing.x) == Math.abs(position.y - existing.y))
                 return false;
         }
         
@@ -100,7 +91,8 @@ public class NQueens {
     }
     
     public static void main(String[] args) {
-    	List<String[]> r = new NQueens().solveNQueens(4);
+    	NQueens service = new NQueens();
+    	List<String[]> r = service.solveNQueens(5);
     	System.out.println(r);
     }
 }
