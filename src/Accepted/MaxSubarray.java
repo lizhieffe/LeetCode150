@@ -13,27 +13,27 @@ public class MaxSubarray {
         int index = 1;
         
         while (index < length) {
-        if (A[index] <= 0) {
-        max = Math.max(tmp, max);
-        if (tmp <= -A[index])
-        tmp = A[index];
-        else 
-        tmp = tmp + A[index];
-        } else {
-        if (tmp < 0)
-        tmp = A[index];
-        else
-        tmp = tmp + A[index];
-        }
+        	if (A[index] <= 0) {
+        		max = Math.max(tmp, max);
+        		if (tmp <= -A[index])
+        			tmp = A[index];
+        		else 
+        			tmp = tmp + A[index];
+        	} else {
+        		if (tmp < 0)
+        			tmp = A[index];
+        		else
+        			tmp = tmp + A[index];
+        	}
         
-        index ++;
+        	index ++;
         }
         max = Math.max(tmp, max);
         return max;
     }
     
     public static void main(String[] args) {
-    int[] A = {-2, -1};
+    int[] A = {-3, 0, 1, -2};
     
     MaxSubarray service = new MaxSubarray();
     System.out.println(service.maxSubArray(A));
